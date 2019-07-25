@@ -26,14 +26,14 @@
 	<partition label="tzbak" size_in_kb="512" type="EBD0A0A2-B9E5-4433-87C0-68B6B72699C7" bootable="false" readonly="false" filename="tz.mbn"/>	
 	<partition label="hyp" size_in_kb="512" type="E1A6A689-0C8D-4CC6-B4E8-55A4320FBD8A" bootable="false" readonly="false" filename="hyp.mbn"/>
 	<partition label="hypbak" size_in_kb="512" type="EBD0A0A2-B9E5-4433-87C0-68B6B72699C7" bootable="false" readonly="false" filename="hyp.mbn"/>   	
-    <partition label="modemst1" size_in_kb="1536" type="EBBEADAF-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
-	<partition label="modemst2" size_in_kb="1536" type="0A288B1F-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
+	<partition label="modemst1" size_in_kb="2048" type="EBBEADAF-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
+	<partition label="modemst2" size_in_kb="2048" type="0A288B1F-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
 	<partition label="DDR" size_in_kb="32" type="20A0C19C-286A-42FA-9CE7-F64C3226A794" bootable="false" readonly="true"/>
-	<partition label="fsg" size_in_kb="1536" type="638FF8E2-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="true" filename=""/>
+	<partition label="fsg" size_in_kb="2048" type="638FF8E2-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="true" filename="fs_image_linux.tar.gz.mbn.img"/>
 	<partition label="sec" size_in_kb="16" type="303E6AC3-AF15-4C54-9E9B-D9A8FBECF401" bootable="false" readonly="true" filename="sec.dat"/>
 	<partition label="aboot" size_in_kb="1024" type="400FFDCD-22E0-47E7-9A23-F16ED9382388" bootable="false" readonly="true" filename="emmc_appsboot.mbn"/>
 	<partition label="abootbak" size_in_kb="1024" type="EBD0A0A2-B9E5-4433-87C0-68B6B72699C7" bootable="false" readonly="true" filename="emmc_appsboot.mbn"/>
-    <partition label="boot" size_in_kb="32768" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="true" filename="boot.img"/>
+	<partition label="boot" size_in_kb="32768" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="true" filename="boot.img"/>
 	<partition label="recovery" size_in_kb="32768" type="9D72D4E4-9958-42DA-AC26-BEA7A90B0434" bootable="false" readonly="true" filename="recovery.img"/>
 	<partition label="devinfo" size_in_kb="1024" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="true" filename=""  sparse="true"/>
 	<partition label="system" size_in_kb="1258292" type="97D7B011-54DA-4835-B3C4-917AD6E73D74" bootable="false" readonly="true" filename="system.img" sparse="true"/>
