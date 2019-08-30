@@ -25,7 +25,7 @@
 	<partition label="fsc" size_in_kb="1" type="57B90A16-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
 	<partition label="fsg" size_in_kb="2048" type="638FF8E2-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="true" filename="fs_image_linux.tar.gz.mbn.img"/>
 	<partition label="aboot" size_in_kb="1024" type="400FFDCD-22E0-47E7-9A23-F16ED9382388" bootable="false" readonly="false" filename="emmc_appsboot.mbn"/>
-    <partition label="boot" size_in_kb="65536" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot.img"/>
+    <partition label="boot" size_in_kb="65536" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot-erase.img"/>
 	<partition label="devinfo" size_in_kb="1024" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""  sparse="true"/>
 	<partition label="rootfs" size_in_kb="1817040" type="97D7B011-54DA-4835-B3C4-917AD6E73D74" bootable="false" readonly="false"/>
   </physical_partition>

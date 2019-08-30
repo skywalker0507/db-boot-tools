@@ -42,7 +42,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     <!-- This is LUN 0 - HLOS LUN" -->
     <physical_partition>
-        <partition label="rootfs" size_in_kb="12582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename="" sparse="true"/>
+        <partition label="rootfs" size_in_kb="12582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename="" />
     </physical_partition>
 
     <!-- This is LUN 1 - Boot LUN A" -->
@@ -81,7 +81,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <partition label="mdtp" size_in_kb="32768" type="3878408A-E263-4B67-B878-6340B35B11E3" bootable="false" readonly="true" filename=""/>
         <partition label="aboot" size_in_kb="1024" type="400FFDCD-22E0-47E7-9A23-F16ED9382388" bootable="false" readonly="true" filename="emmc_appsboot.mbn"/>
         <partition label="abootbak" size_in_kb="1024" type="400FFDCD-22E0-47E7-9A23-F16ED9382388" bootable="false" readonly="true" filename="emmc_appsboot.mbn"/>
-        <partition label="boot" size_in_kb="65536" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="true" filename="" />
+        <partition label="boot" size_in_kb="65536" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="true" filename="boot-erase.img" />
         <partition label="devinfo" size_in_kb="1" type="65ADDCF4-0C5C-4D9A-AC2D-D90B5CBFCD03" bootable="false" readonly="true" filename=""/>
 		<partition label="bluetooth" size_in_kb="1024" type="6cb747f1-c2ef-4092-add0-ca39f79c7af4" bootable="false" readonly="true" filename="BTFM.bin"/>
         <partition label="keymaster" size_in_kb="512" type="4F772165-0F3C-4BA3-BBCB-A829E9C969F9" bootable="false" readonly="true" filename="keymaster.mbn" />
