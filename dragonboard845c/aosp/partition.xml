@@ -18,7 +18,8 @@
         <partition label="system_b" size_in_kb="6072864" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename=""/>
         <partition label="super" size_in_kb="12145728" type="88147DE5-14E6-43CC-9FE2-48F6B99CBB45" bootable="false" readonly="false" filename=""/>
         <partition label="systemrw" size_in_kb="16384" type="77036CD4-03D5-24BB-8ED1-37E5A77BAA34" bootable="false" readonly="false" filename=""/>
-        <partition label="cache" size_in_kb="131072" type="9FB61B5A-5245-47C2-9A59-DBE909F38498" bootable="false" readonly="false" filename=""/>
+        <partition label="cache" size_in_kb="65536" type="9FB61B5A-5245-47C2-9A59-DBE909F38498" bootable="false" readonly="false" filename=""/>
+        <partition label="metadata" size_in_kb="65536" type="649044CD-B22B-443F-8DF8-687EB85380A8" bootable="false" readonly="false" filename=""/>
         <partition label="userdata" size_in_kb="3582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""/>
         </physical_partition>
 
