@@ -13,11 +13,6 @@
 
     <!-- This is LUN 0 - HLOS LUN" -->
     <physical_partition>
-        <partition label="ssd" size_in_kb="8" type="2C86E742-745E-4FDD-BFD8-B6A7AC638772" bootable="false" readonly="false" filename="" />
-        <partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename=""/>
-        <partition label="misc" size_in_kb="1024" type="82ACC91F-357C-4A68-9C8F-689E1B1A23A1" bootable="false" readonly="false" filename="" />
-        <partition label="keystore" size_in_kb="512" type="DE7D4029-0F5B-41C8-AE7E-F6C023A02B33" bootable="false" readonly="false" filename="" />
-        <partition label="frp" size_in_kb="512" type="91B72D4D-71E0-4CBF-9B8E-236381CFF17A" bootable="false" readonly="false" filename=""/>
         <partition label="rootfs" size_in_kb="79691776" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""/>
         </physical_partition>
 
@@ -61,7 +56,7 @@
         <partition label="abl_a" size_in_kb="1024" type="BD6928A1-4CE0-A038-4F3A-1495E3EDDFFB" bootable="false" readonly="true" filename="abl.elf"/>
         <partition label="dsp_a" size_in_kb="65536" type="7EFE5010-2A1A-4A1A-B8BC-990257813512" bootable="false" readonly="true" filename="dspso.bin"/>
         <partition label="keymaster_a" size_in_kb="512" type="A11D2A7C-D82A-4C2F-8A01-1805240E6626" bootable="false" readonly="true" filename="km4.mbn"/>
-        <partition label="boot_a" size_in_kb="65536" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot-erase.img" />
+        <partition label="boot_a" size_in_kb="98304" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot-erase.img" />
         <partition label="cmnlib_a" size_in_kb="512" type="73471795-AB54-43F9-A847-4F72EA5CBEF5" bootable="false" readonly="true" filename="cmnlib.mbn"/>
         <partition label="cmnlib64_a" size_in_kb="512" type="8EA64893-1267-4A1B-947C-7C362ACAAD2C" bootable="false" readonly="true" filename="cmnlib64.mbn"/>
         <partition label="devcfg_a" size_in_kb="128" type="F65D4B16-343D-4E25-AAFC-BE99B6556A6D" bootable="false" readonly="false" filename="devcfg.mbn"/>
@@ -115,7 +110,7 @@
         <partition label="secdata" size_in_kb="25" type="76cfc7ef-039d-4e2c-b81e-4dd8c2cb2a93" bootable="false" readonly="true" filename=""/>
         <partition label="vm-keystore" size_in_kb="128" type="665fe2a8-2f28-44b7-b12d-e89eec9ee9f7" bootable="false" readonly="false" filename=""/>
         <partition label="vm-data" size_in_kb="4096" type="c9bb2aa8-af8f-49b3-b723-a890a2c8e6d3" bootable="false" readonly="false" filename=""/>
-        <partition label="last_parti" size_in_kb="0" type="00000000-0000-0000-0000-000000000000" bootable="false" readonly="true" filename="" />				
+        <partition label="last_parti" size_in_kb="0" type="00000000-0000-0000-0000-000000000000" bootable="false" readonly="true" filename="" />
     </physical_partition>
     
     <!-- This is LUN 5 - Protected Read-write LUN" -->
@@ -131,6 +126,12 @@
         <partition label="mdm1m9kefs1" size_in_kb="2048" type="2290BE64-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename=""/>
         <partition label="mdm1m9kefs2" size_in_kb="2048" type="346C26D1-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename="" />
         <partition label="mdm1m9kefsc" size_in_kb="1" type="5CB43A64-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename="" />
+	<!-- HLOS part -->
+        <partition label="ssd" size_in_kb="8" type="2C86E742-745E-4FDD-BFD8-B6A7AC638772" bootable="false" readonly="false" filename="" />
+        <partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename=""/>
+        <partition label="misc" size_in_kb="1024" type="82ACC91F-357C-4A68-9C8F-689E1B1A23A1" bootable="false" readonly="false" filename="" />
+        <partition label="keystore" size_in_kb="512" type="DE7D4029-0F5B-41C8-AE7E-F6C023A02B33" bootable="false" readonly="false" filename="" />
+        <partition label="frp" size_in_kb="512" type="91B72D4D-71E0-4CBF-9B8E-236381CFF17A" bootable="false" readonly="false" filename=""/>
         <partition label="last_parti" size_in_kb="0" type="00000000-0000-0000-0000-000000000000" bootable="false" readonly="true" filename="" />
     </physical_partition>
 </configuration>
