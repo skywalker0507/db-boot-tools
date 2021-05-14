@@ -36,7 +36,7 @@
          Linux Android customers can ignore this requirement -->
     <physical_partition>
         <partition label="ALIGN_TO_128K_1" size_in_kb="104" type="FDE1604B-D68B-4BD4-973D-962AE7A1ED88" bootable="false" readonly="true" />		
-        <partition label="cdt" size_in_kb="128" type="A19F205F-CCD8-4B6D-8F1E-2D9BC24CFFB1" bootable="false" readonly="true" filename="" />
+        <partition label="cdt" size_in_kb="128" type="A19F205F-CCD8-4B6D-8F1E-2D9BC24CFFB1" bootable="false" readonly="true" filename="cdt.bin" />
         <partition label="ddr" size_in_kb="2048" type="20A0C19C-286A-42FA-9CE7-F64C3226A794" bootable="false" readonly="true"/>
         <partition label="mdmddr" size_in_kb="1024" type="433EE193-1A8E-4D35-860F-FF66676AF52B" bootable="false" readonly="false" filename=""/>
         <partition label="last_parti" size_in_kb="0" type="00000000-0000-0000-0000-000000000000" bootable="false" readonly="true" filename="" />

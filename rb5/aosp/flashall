@@ -13,6 +13,7 @@ fastboot flash apdp apdp.mbn
 #fastboot flash bluetooth_a BTFM.bin
 fastboot flash cmnlib64_a cmnlib64.mbn
 fastboot flash cmnlib_a cmnlib.mbn
+fastboot flash cdt cdt.bin
 fastboot erase ddr
 fastboot flash devcfg_a devcfg.mbn
 fastboot flash dsp_a dspso.bin
