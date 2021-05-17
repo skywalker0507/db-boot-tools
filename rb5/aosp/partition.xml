@@ -13,9 +13,17 @@
 
     <!-- This is LUN 0 - HLOS LUN" -->
     <physical_partition>
-	<partition label="system" size_in_kb="67108864" type="97D7B011-54DA-4835-B3C4-917AD6E73D74" bootable="false" readonly="false" filename="qti-ubuntu-robotics-image-qrb5165-rb5-sysfs.ext4" sparse="true"/>
-        <partition label="userdata" size_in_kb="12582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename="" sparse=""/>
-        </physical_partition>
+        <partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename=""/>
+        <partition label="system_a" size_in_kb="6007328" type="97D7B011-54DA-4835-B3C4-917AD6E73D74" bootable="false" readonly="false" filename=""/>
+        <partition label="system_b" size_in_kb="6007328" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename=""/>
+        <partition label="vendor_boot_a" size_in_kb="65536" type="C235A424-D0DE-46AC-903F-6CBD806654F9" bootable="false" readonly="false" filename=""/>
+        <partition label="vendor_boot_b" size_in_kb="65536" type="4FFF84FA-5269-43A8-9E36-25C566123B61" bootable="false" readonly="false" filename=""/>
+        <partition label="super" size_in_kb="12145728" type="88147DE5-14E6-43CC-9FE2-48F6B99CBB45" bootable="false" readonly="false" filename=""/>
+        <partition label="systemrw" size_in_kb="16384" type="77036CD4-03D5-24BB-8ED1-37E5A77BAA34" bootable="false" readonly="false" filename=""/>
+        <partition label="cache" size_in_kb="65536" type="9FB61B5A-5245-47C2-9A59-DBE909F38498" bootable="false" readonly="false" filename=""/>
+        <partition label="metadata" size_in_kb="65536" type="649044CD-B22B-443F-8DF8-687EB85380A8" bootable="false" readonly="false" filename=""/>
+        <partition label="userdata" size_in_kb="3582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""/>
+    </physical_partition>
 
     <!-- This is LUN 1 - Boot LUN A" -->
     <physical_partition>
