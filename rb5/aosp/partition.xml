@@ -14,6 +14,8 @@
     <!-- This is LUN 0 - HLOS LUN" -->
     <physical_partition>
         <partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename=""/>
+        <partition label="misc" size_in_kb="1024" type="82ACC91F-357C-4A68-9C8F-689E1B1A23A1" bootable="false" readonly="false" filename="" />
+        <partition label="keystore" size_in_kb="512" type="DE7D4029-0F5B-41C8-AE7E-F6C023A02B33" bootable="false" readonly="false" filename="" />
         <partition label="system_a" size_in_kb="6007328" type="97D7B011-54DA-4835-B3C4-917AD6E73D74" bootable="false" readonly="false" filename=""/>
         <partition label="system_b" size_in_kb="6007328" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename=""/>
         <partition label="vendor_boot_a" size_in_kb="65536" type="C235A424-D0DE-46AC-903F-6CBD806654F9" bootable="false" readonly="false" filename=""/>
@@ -137,9 +139,6 @@
         <partition label="mdm1m9kefsc" size_in_kb="1" type="5CB43A64-22C9-E33B-8F5D-0E81686A68CB" bootable="false" readonly="false" filename="" />
 	<!-- HLOS part -->
         <partition label="ssd" size_in_kb="8" type="2C86E742-745E-4FDD-BFD8-B6A7AC638772" bootable="false" readonly="false" filename="" />
-        <partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename=""/>
-        <partition label="misc" size_in_kb="1024" type="82ACC91F-357C-4A68-9C8F-689E1B1A23A1" bootable="false" readonly="false" filename="" />
-        <partition label="keystore" size_in_kb="512" type="DE7D4029-0F5B-41C8-AE7E-F6C023A02B33" bootable="false" readonly="false" filename="" />
         <partition label="frp" size_in_kb="512" type="91B72D4D-71E0-4CBF-9B8E-236381CFF17A" bootable="false" readonly="false" filename=""/>
         <partition label="last_parti" size_in_kb="0" type="00000000-0000-0000-0000-000000000000" bootable="false" readonly="true" filename="" />
     </physical_partition>
