@@ -1,0 +1,20 @@
+build:
+  image: debian:stable
+  tags: [amd64-runner]
+  parallel:
+    matrix:
+      - MACHINE: [dragonboard410c, dragonboard820c, dragonboard845c, rb5]
+        TARGET: [aosp, linux]
+  script:
+    - apt update
+    - apt -y install python3
+    - python3 ./ptool.py -x $MACHINE/$TARGET/partition.xml -t out
+    - cp $MACHINE/$TARGET/flashall out/
+  artifacts:
+    paths:
+      - out/flashall
+      - out/gpt*
+      - out/patch*
+      - out/rawprogram[0-9].xml
+      - out/zeros*
+    name: "gpt-$MACHINE-$TARGET"
