@@ -1,0 +1,30 @@
+#!/bin/sh
+
+fastboot flash partition:0 gpt_both0.bin
+
+#fastboot flash apdp apdp.mbn
+#fastboot flash bluetooth_a BTFM.bin
+#fastboot flash cdt cdt.bin
+#fastboot erase ddr
+fastboot flash devcfg_a devcfg.mbn
+fastboot flash dsp_a dspso.bin
+fastboot flash featenabler_a featenabler.mbn
+fastboot flash hyp_a hyp.mbn
+fastboot flash imagefv_a imagefv.elf
+fastboot flash keymaster_a km4.mbn
+#fastboot flash logfs logfs_ufs_8mb.bin
+#fastboot flash modem_a NON-HLOS.bin
+fastboot flash multiimgoem_a multi_image.mbn
+fastboot flash qupfw_a qupv3fw.elf
+fastboot flash rpm_a rpm.mbn
+fastboot flash storsec storsec.mbn
+fastboot flash tz_a tz.mbn
+fastboot flash uefisecapp_a uefi_sec.mbn
+fastboot flash xbl_a xbl.elf
+fastboot flash xbl_config_a xbl_feature_config.elf
+
+fastboot flash rpm_r rpm.mbn
+fastboot flash xbl_r xbl.elf
+fastboot flash xbl_config_r xbl_feature_config.elf
+
+fastboot flash abl_a abl.elf
