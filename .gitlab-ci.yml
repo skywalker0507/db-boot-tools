@@ -5,6 +5,11 @@ build:
     matrix:
       - MACHINE: [dragonboard410c, dragonboard820c, dragonboard845c, rb5]
         TARGET: [aosp, linux]
+        # no AOSP for now
+      - MACHINE: rb1
+        TARGET: linux
+      - MACHINE: rb2
+        TARGET: linux
   script:
     - apt update
     - apt -y install python3
