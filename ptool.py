@@ -28,12 +28,70 @@
 #IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # ===========================================================================*/
 
+# The XML-handling functions are based on Python 3.11
+# Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+# 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Python Software Foundation;
+# All Rights Reserved
+#
+# They are covered by PSF license:
+#
+# PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
+# --------------------------------------------
+#
+# 1. This LICENSE AGREEMENT is between the Python Software Foundation
+# ("PSF"), and the Individual or Organization ("Licensee") accessing and
+# otherwise using this software ("Python") in source or binary form and
+# its associated documentation.
+#
+# 2. Subject to the terms and conditions of this License Agreement, PSF hereby
+# grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,
+# analyze, test, perform and/or display publicly, prepare derivative works,
+# distribute, and otherwise use Python alone or in any derivative version,
+# provided, however, that PSF's License Agreement and PSF's notice of copyright,
+# i.e., "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+# 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Python Software Foundation;
+# All Rights Reserved" are retained in Python alone or in any derivative version
+# prepared by Licensee.
+#
+# 3. In the event Licensee prepares a derivative work that is based on
+# or incorporates Python or any part thereof, and wants to make
+# the derivative work available to others as provided herein, then
+# Licensee hereby agrees to include in any such work a brief summary of
+# the changes made to Python.
+#
+# 4. PSF is making Python available to Licensee on an "AS IS"
+# basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+# IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND
+# DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+# FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT
+# INFRINGE ANY THIRD PARTY RIGHTS.
+#
+# 5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON
+# FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS
+# A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,
+# OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+#
+# 6. This License Agreement will automatically terminate upon a material
+# breach of its terms and conditions.
+#
+# 7. Nothing in this License Agreement shall be deemed to create any
+# relationship of agency, partnership, or joint venture between PSF and
+# Licensee.  This License Agreement does not grant permission to use PSF
+# trademarks or trade name in a trademark sense to endorse or promote
+# products or services of Licensee, or any third party.
+#
+# 8. By copying, installing or otherwise using Python, Licensee
+# agrees to be bound by the terms and conditions of this License
+# Agreement.
+
 import sys,os,getopt
+import io
 import random,math
 import re
 import struct
 from types import *
 from time import sleep
+from xml.dom import Node
 
 if sys.version_info < (2,5):
     sys.stdout.write("\n\nERROR: This script needs Python version 2.5 or greater, detected as ")
@@ -1745,13 +1803,87 @@ def CreateFinalPartitionBin():
     opfile.close()
 
 
+def _write_data(writer, data):
+    "Writes datachars to writer."
+    if data:
+        data = data.replace("&", "&amp;").replace("<", "&lt;"). \
+                    replace("\"", "&quot;").replace(">", "&gt;")
+        writer.write(data)
+
+def writexml(node, writer, indent="", addindent="", newl=""):
+    """Write an XML element to a file-like object
+
+    Write the element to the writer object that must provide
+    a write method (e.g. a file or StringIO object).
+    """
+    # indent = current indentation
+    # addindent = indentation to add to higher levels
+    # newl = newline string
+    writer.write(indent+"<" + node.tagName)
+
+    attrs = node._get_attributes()
+
+    for a_name in sorted(attrs.keys()):
+        writer.write(" %s=\"" % a_name)
+        _write_data(writer, attrs[a_name].value)
+        writer.write("\"")
+    if node.childNodes:
+        writer.write(">")
+        if (len(node.childNodes) == 1 and
+            node.childNodes[0].nodeType in (
+                    Node.TEXT_NODE, Node.CDATA_SECTION_NODE)):
+            node.childNodes[0].writexml(writer, '', '', '')
+        else:
+            writer.write(newl)
+            for child in node.childNodes:
+                if child.nodeType in (Node.COMMENT_NODE, Node.TEXT_NODE, Node.CDATA_SECTION_NODE):
+                    child.writexml(writer, indent+addindent, addindent, newl)
+                else:
+                    writexml(child, writer, indent+addindent, addindent, newl)
+            writer.write(indent)
+        writer.write("</%s>%s" % (node.tagName, newl))
+    else:
+        writer.write("/>%s"%(newl))
+
+def writedocxml(node, writer, indent="", addindent="", newl="", encoding=None,
+             standalone=None):
+    declarations = []
+
+    if encoding:
+        declarations.append(f'encoding="{encoding}"')
+    if standalone is not None:
+        declarations.append(f'standalone="{"yes" if standalone else "no"}"')
+
+    writer.write(f'<?xml version="1.0" {" ".join(declarations)}?>{newl}')
+
+    for node in node.childNodes:
+        writexml(node, writer, indent, addindent, newl)
+
+def toprettyxml(node, indent="\t", newl="\n", encoding=None,
+                standalone=None):
+    if encoding is None:
+        writer = io.StringIO()
+    else:
+        writer = io.TextIOWrapper(io.BytesIO(),
+                                  encoding=encoding,
+                                  errors="xmlcharrefreplace",
+                                  newline='\n')
+    if node.nodeType == Node.DOCUMENT_NODE:
+        # Can pass encoding only to document, to put it into XML header
+        writedocxml(node, writer, "", indent, newl, encoding, standalone)
+    else:
+        writexml(node, writer, "", indent, newl)
+    if encoding is None:
+        return writer.getvalue()
+    else:
+        return writer.detach().getvalue()
 
 def prettify(elem):
     """Return a pretty-printed XML string for the Element.
     """
     rough_string = ET.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
-    return reparsed.toprettyxml(indent="  ")
+    return toprettyxml(reparsed, indent="  ")
 
 
 def UpdatePartitionTable(Bootable,Type,StartSector,Size,Offset,Record):
