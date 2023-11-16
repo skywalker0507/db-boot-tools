@@ -7,27 +7,31 @@ fastboot flash partition:3 gpt_both3.bin
 fastboot flash partition:4 gpt_both4.bin
 fastboot flash partition:5 gpt_both5.bin
 
-#fastboot flash ImageFv_a imagefv.elf
-fastboot flash aop_a aop.mbn
 fastboot flash apdp apdp.mbn
-#fastboot flash bluetooth_a BTFM.bin
-fastboot flash cmnlib64_a cmnlib64.mbn
-fastboot flash cmnlib_a cmnlib.mbn
 fastboot flash cdt cdt.bin
 fastboot erase ddr
-fastboot flash devcfg_a devcfg.mbn
-fastboot flash dsp_a dspso.bin
-fastboot flash featenabler_a featenabler.mbn
-fastboot flash hyp_a hyp.mbn
-fastboot flash keymaster_a km4.mbn
 #fastboot flash logfs logfs_ufs_8mb.bin
-#fastboot flash modem_a NON-HLOS.bin
-fastboot flash multiimgoem_a multi_image.mbn
-fastboot flash qupfw_a qupv3fw.elf
 fastboot flash spunvm spunvm.bin
-fastboot flash tz_a tz.mbn
-fastboot flash uefisecapp_a uefi_sec.mbn
-fastboot flash xbl_a xbl.elf
-fastboot flash xbl_config_a xbl_config.elf
 
-fastboot flash abl_a abl.elf
+for slot in a b
+do
+	#fastboot flash ImageFv_${slot} imagefv.elf
+	fastboot flash aop_${slot} aop.mbn
+	#fastboot flash bluetooth_${slot} BTFM.bin
+	fastboot flash cmnlib64_${slot} cmnlib64.mbn
+	fastboot flash cmnlib_${slot} cmnlib.mbn
+	fastboot flash devcfg_${slot} devcfg.mbn
+	fastboot flash dsp_${slot} dspso.bin
+	fastboot flash featenabler_${slot} featenabler.mbn
+	fastboot flash hyp_${slot} hyp.mbn
+	fastboot flash keymaster_${slot} km4.mbn
+	#fastboot flash modem_${slot} NON-HLOS.bin
+	fastboot flash multiimgoem_${slot} multi_image.mbn
+	fastboot flash qupfw_${slot} qupv3fw.elf
+	fastboot flash tz_${slot} tz.mbn
+	fastboot flash uefisecapp_${slot} uefi_sec.mbn
+	fastboot flash xbl_${slot} xbl.elf
+	fastboot flash xbl_config_${slot} xbl_config.elf
+
+	fastboot flash abl_${slot} abl.elf
+done
