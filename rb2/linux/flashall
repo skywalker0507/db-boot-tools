@@ -14,7 +14,7 @@ fastboot flash imagefv_a imagefv.elf
 fastboot flash keymaster_a km4.mbn
 #fastboot flash logfs logfs_ufs_8mb.bin
 fastboot flash modem_a NON-HLOS.bin
-fastboot flash multiimgoem_a multi_image.mbn
+fastboot flash multiimgoem multi_image.mbn
 fastboot flash qupfw_a qupv3fw.elf
 fastboot flash rpm_a rpm.mbn
 fastboot flash storsec storsec.mbn
