@@ -1,3 +1,6 @@
+variables:
+  RESCUE_PROJECT: "linaro/qcomlt/rescue"
+
 build:
   image: debian:stable
   tags: [amd64-runner]
@@ -26,3 +29,9 @@ build:
       - out/zeros*
       - out/commit
     name: "gpt-$MACHINE-$TARGET"
+
+trigger_rescue:
+  stage: .post
+  trigger:
+    project: ${RESCUE_PROJECT}
+    strategy: depend
