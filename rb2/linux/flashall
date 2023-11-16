@@ -3,7 +3,7 @@
 fastboot flash partition:0 gpt_both0.bin
 
 fastboot flash apdp apdp.mbn
-#fastboot flash bluetooth_a BTFM.bin
+fastboot flash bluetooth_a BTFM.bin
 #fastboot flash cdt cdt.bin
 #fastboot erase ddr
 fastboot flash devcfg_a devcfg.mbn
@@ -13,7 +13,7 @@ fastboot flash hyp_a hyp.mbn
 fastboot flash imagefv_a imagefv.elf
 fastboot flash keymaster_a km4.mbn
 #fastboot flash logfs logfs_ufs_8mb.bin
-#fastboot flash modem_a NON-HLOS.bin
+fastboot flash modem_a NON-HLOS.bin
 fastboot flash multiimgoem_a multi_image.mbn
 fastboot flash qupfw_a qupv3fw.elf
 fastboot flash rpm_a rpm.mbn
