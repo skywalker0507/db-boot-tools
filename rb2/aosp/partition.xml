@@ -31,8 +31,8 @@
 		<partition label="hyp_a" size_in_kb="512" type="E1A6A689-0C8D-4CC6-B4E8-55A4320FBD8A" bootable="false" readonly="true" filename="hyp.mbn"/>
         <partition label="hyp_b" size_in_kb="512" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="hyp.mbn"/>
         <partition label="hyp_r" size_in_kb="512" type="4BACB256-C6E9-46F5-A3B6-A245080A9727" bootable="false" readonly="true" filename="hyp.mbn"/>
-		<partition label="boot_a" size_in_kb="98304" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot.img"/>
-		<partition label="boot_b" size_in_kb="98304" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="boot.img"/>
+		<partition label="boot_a" size_in_kb="98304" type="20117F86-E985-4357-B9EE-374BC1D8487D" bootable="false" readonly="false" filename="boot-erase.img"/>
+		<partition label="boot_b" size_in_kb="98304" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="boot-erase.img"/>
 		<partition label="system_a" size_in_kb="3145728" type="89A12DE1-5E41-4CB3-8B4C-B1441EB5DA38" bootable="false" readonly="false" filename="system.img" sparse="true"/>
 		<partition label="system_b" size_in_kb="3145728" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="system.img" sparse="true"/>  
         <partition label="keymaster_a" size_in_kb="512" type="A11D2A7C-D82A-4C2F-8A01-1805240E6626" bootable="false" readonly="true" filename="km4.mbn"/>
