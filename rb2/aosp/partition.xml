@@ -63,7 +63,7 @@
 		<partition label="uefisecapp_b" size_in_kb="2048" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="uefi_sec.mbn"/>
 		<partition label="persist" size_in_kb="32768" type="6C95E238-E343-4BA8-B489-8681ED22AD0B" bootable="false" readonly="false" filename="persist.img" sparse="true"/>
         <partition label="misc" size_in_kb="1024" type="82ACC91F-357C-4A68-9C8F-689E1B1A23A1" bootable="false" readonly="false" filename="" />
-        <partition label="misc_boot" size_in_kb="1024" type="F4EEE7D9-AB97-4297-954B-1B8AF9C14B19" bootable="false" readonly="false" filename="" />
+        <partition label="misc_boot" size_in_kb="1024" type="F4EEE7D9-AB97-4297-954B-1B8AF9C14B19" bootable="false" readonly="false" filename="boot-erase.img" />
         <partition label="keystore" size_in_kb="512" type="DE7D4029-0F5B-41C8-AE7E-F6C023A02B33" bootable="false" readonly="false" filename="" />
         <partition label="devcfg_a" size_in_kb="128" type="F65D4B16-343D-4E25-AAFC-BE99B6556A6D" bootable="false" readonly="false" filename="devcfg.mbn"/>
         <partition label="devcfg_b" size_in_kb="128" type="77036CD4-03D5-42BB-8ED1-37E5A88BAA34" bootable="false" readonly="false" filename="devcfg.mbn"/>
