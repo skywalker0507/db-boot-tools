@@ -8,6 +8,8 @@ build:
     matrix:
       - MACHINE: [dragonboard410c, dragonboard820c, dragonboard845c, rb1, rb2, rb5]
         TARGET: [aosp, linux]
+      - MACHINE: [sm8350-hdk, sm8450-hdk, sm8550-hdk]
+        TARGET: [aosp]
   script:
     - apt update
     - apt -y install python3
