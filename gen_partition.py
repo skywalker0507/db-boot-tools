@@ -245,16 +245,16 @@ try:
    line = f.readline()
    partition_index = 0
    while line:
-      if not re.search("^\s*#", line) and not re.search("^\s*$", line):
+      if not re.search(r"^\s*#", line) and not re.search(r"^\s*$", line):
          line = line.strip()
-         if re.search("^--disk", line):
+         if re.search(r"^--disk", line):
             if disk_entry == None:
                disk_entry = line
             else:
                print("%s %s" %(sys.argv[1], disk_entry_err_msg))
                print("%s\n%s" %(disk_entry, line))
                sys.exit(1)
-         elif re.search("^--partition", line):
+         elif re.search(r"^--partition", line):
             partition_entries_dict[partition_index] = line
             partition_index += 1
          else:
