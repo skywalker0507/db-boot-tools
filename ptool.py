@@ -249,11 +249,11 @@ def ValidGUIDForm(GUID):
     print("Testing if GUID=",GUID)
 
     m = re.search("0x([a-fA-F\d]{32})$", GUID)     #0xC79926B7B668C0874433B9E5EBD0A0A2
-    if type(m) is not NoneType:
+    if type(m) is not type(None):
         return True
 
     m = re.search("([a-fA-F\d]{8})-([a-fA-F\d]{4})-([a-fA-F\d]{4})-([a-fA-F\d]{2})([a-fA-F\d]{2})-([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})", GUID)
-    if type(m) is not NoneType:
+    if type(m) is not type(None):
         return True
 
     print("GUID does not match regular expression")
@@ -271,7 +271,7 @@ def ValidateTYPE(Type):
         Type = str(Type)
 
     m = re.search("^(0x)?([a-fA-F\d][a-fA-F\d]?)$", Type)
-    if type(m) is NoneType:
+    if type(m) is type(None):
         print("\tWARNING: Type \"%s\" is not in the form 0x4C" % Type)
         sys.exit(1)
     else:
@@ -288,7 +288,7 @@ def ValidateGUID(GUID):
     print("Looking to validate GUID=",GUID)
 
     m = re.search("0x([a-fA-F\d]{32})$", GUID)     #0xC79926B7B668C0874433B9E5EBD0A0A2
-    if type(m) is not NoneType:
+    if type(m) is not type(None):
         tempGUID = int(m.group(1),16)
         print("\tGUID \"%s\"" % GUID)
 
@@ -306,7 +306,7 @@ def ValidateGUID(GUID):
     else:
         #ebd0a0a2-b9e5-4433-87c0-68b6b72699c7  --> #0x C7 99 26 B7 B6 68 C087 4433 B9E5 EBD0A0A2
         m = re.search("([a-fA-F\d]{8})-([a-fA-F\d]{4})-([a-fA-F\d]{4})-([a-fA-F\d]{2})([a-fA-F\d]{2})-([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})([a-fA-F\d]{2})", GUID)
-        if type(m) is not NoneType:
+        if type(m) is not type(None):
             print("Found more advanced type")
             tempGUID = (int(m.group(4),16)<<64) | (int(m.group(3),16)<<48) | (int(m.group(2),16)<<32) | int(m.group(1),16)
             tempGUID|= (int(m.group(8),16)<<96) | (int(m.group(7),16)<<88) | (int(m.group(6),16)<<80) | (int(m.group(5),16)<<72)
@@ -1130,7 +1130,7 @@ def ParseXML(XMLFile):
     if 'SECTOR_SIZE_IN_BYTES' in HashInstructions:
         if type(HashInstructions['SECTOR_SIZE_IN_BYTES']) is str:
             m = re.search("^(\d+)$", HashInstructions['SECTOR_SIZE_IN_BYTES'])
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 ## we didn't match, so assign deafult
                 HashInstructions['SECTOR_SIZE_IN_BYTES'] = 512
                 SECTOR_SIZE_IN_BYTES = 512
@@ -1149,7 +1149,7 @@ def ParseXML(XMLFile):
     if 'WRITE_PROTECT_BOUNDARY_IN_KB' in HashInstructions:
         if type(HashInstructions['WRITE_PROTECT_BOUNDARY_IN_KB']) is str:
             m = re.search("^(\d+)$", HashInstructions['WRITE_PROTECT_BOUNDARY_IN_KB'])
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 ## we didn't match, so assign deafult
                 HashInstructions['WRITE_PROTECT_BOUNDARY_IN_KB'] = 0
             else:
@@ -1161,7 +1161,7 @@ def ParseXML(XMLFile):
     if 'PERFORMANCE_BOUNDARY_IN_KB' in HashInstructions:
         if type(HashInstructions['PERFORMANCE_BOUNDARY_IN_KB']) is str:
             m = re.search("^(\d+)$", HashInstructions['PERFORMANCE_BOUNDARY_IN_KB'])
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 ## we didn't match, so assign deafult
                 HashInstructions['PERFORMANCE_BOUNDARY_IN_KB'] = 0
             else:
@@ -1174,7 +1174,7 @@ def ParseXML(XMLFile):
         if type(HashInstructions['GROW_LAST_PARTITION_TO_FILL_DISK']) is str:
             m = re.search("^(true)$", HashInstructions['GROW_LAST_PARTITION_TO_FILL_DISK'] ,re.IGNORECASE)
             #print(type(m))
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 HashInstructions['GROW_LAST_PARTITION_TO_FILL_DISK'] = False    # no match
                 #print("assigned false")
             else:
@@ -1187,7 +1187,7 @@ def ParseXML(XMLFile):
         if type(HashInstructions['WRITE_PROTECT_GPT_PARTITION_TABLE']) is str:
             m = re.search("^(true)$", HashInstructions['WRITE_PROTECT_GPT_PARTITION_TABLE'] ,re.IGNORECASE)
             #print(type(m))
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 HashInstructions['WRITE_PROTECT_GPT_PARTITION_TABLE'] = False    # no match
                 #print("assigned false")
             else:
@@ -1200,7 +1200,7 @@ def ParseXML(XMLFile):
         if type(HashInstructions['ALIGN_PARTITIONS_TO_PERFORMANCE_BOUNDARY']) is str:
             m = re.search("^(true)$", HashInstructions['ALIGN_PARTITIONS_TO_PERFORMANCE_BOUNDARY'] ,re.IGNORECASE)
             #print(type(m))
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 HashInstructions['ALIGN_PARTITIONS_TO_PERFORMANCE_BOUNDARY'] = False    # no match
                 #print("assigned false")
             else:
@@ -1213,7 +1213,7 @@ def ParseXML(XMLFile):
         if type(HashInstructions['USE_GPT_PARTITIONING']) is str:
             m = re.search("^(true)$", HashInstructions['USE_GPT_PARTITIONING'] ,re.IGNORECASE)
             #print(type(m))
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 HashInstructions['USE_GPT_PARTITIONING'] = False    # no match
                 #print("assigned false")
             else:
@@ -1226,7 +1226,7 @@ def ParseXML(XMLFile):
     if 'DISK_SIGNATURE' in HashInstructions:
         if type(HashInstructions['DISK_SIGNATURE']) is str:
             m = re.search("^0x([\da-fA-F]+)$", HashInstructions['DISK_SIGNATURE'])
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 print("WARNING: DISK_SIGNATURE is not formed correctly, expected format is 0x12345678\n")
                 HashInstructions['DISK_SIGNATURE'] = 0x00000000
             else:
@@ -1238,7 +1238,7 @@ def ParseXML(XMLFile):
     if 'ALIGN_BOUNDARY_IN_KB' in HashInstructions:
         if type(HashInstructions['ALIGN_BOUNDARY_IN_KB']) is str:
             m = re.search("^(\d+)$", HashInstructions['ALIGN_BOUNDARY_IN_KB'])
-            if type(m) is NoneType:
+            if type(m) is type(None):
                 ## we didn't match, so assign deafult
                 HashInstructions['ALIGN_BOUNDARY_IN_KB'] = HashInstructions['WRITE_PROTECT_BOUNDARY_IN_KB']
             else:
@@ -1577,7 +1577,7 @@ def ParseCommandLine():
     if len(sys.argv) >= 3:
         m = re.search("mbr|gpt", sys.argv[2] )
 
-        if type(m) is not NoneType:
+        if type(m) is not type(None):
             OutputToCreate = sys.argv[2]
         else:
             print("Unrecognized option '%s', only 'mbr' or 'gpt' expected" % sys.argv[2])
@@ -1587,7 +1587,7 @@ def ParseCommandLine():
 
     if len(sys.argv) >= 4:  # Should mean PHY partition was specified
         m = re.search("^\d+$", sys.argv[3] )
-        if type(m) is not NoneType:
+        if type(m) is not type(None):
             PhysicalPartitionNumber = int(sys.argv[3])
             print("PhysicalPartitionNumber specified as %d" % PhysicalPartitionNumber)
         else:
@@ -2495,7 +2495,7 @@ for o, a in opts:
         UsingGetOpts = True
         OutputToCreate = a
         m = re.search("^(mbr|gpt)$", a)     #mbr|gpt
-        if type(m) is NoneType:
+        if type(m) is type(None):
             PrintBigError("ERROR: Only MBR or GPT is supported")
         else:
             OutputToCreate = m.group(1)
@@ -2508,7 +2508,7 @@ for o, a in opts:
     elif o in ("-k", "--use128partitions"):
         ## Force there to be 128 partitions in the partition table
         m = re.search("\d", a)     #mbr|gpt
-        if type(m) is NoneType:
+        if type(m) is type(None):
             force128partitions = 0
         else:
             force128partitions = 1
@@ -2519,7 +2519,7 @@ for o, a in opts:
     elif o in ("-g", "--sequentialguid"):
         ## also allow seperating commas
         m = re.search("\d", a)     #mbr|gpt
-        if type(m) is NoneType:
+        if type(m) is type(None):
             sequentialguid = 0
         else:
             sequentialguid = 1
@@ -2528,7 +2528,7 @@ for o, a in opts:
         UsingGetOpts = True
         PhysicalPartitionNumber = a
         m = re.search("^(\d)$", a)     #0|1|2
-        if type(m) is NoneType:
+        if type(m) is type(None):
             PrintBigError("ERROR: PhysicalPartitionNumber (-p) must be a number, you supplied *",a,"*")
         else:
             PhysicalPartitionNumber = int(m.group(1))
