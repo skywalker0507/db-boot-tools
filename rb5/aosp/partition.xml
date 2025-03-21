@@ -24,7 +24,8 @@
         <partition label="systemrw" size_in_kb="16384" type="77036CD4-03D5-24BB-8ED1-37E5A77BAA34" bootable="false" readonly="false" filename=""/>
         <partition label="cache" size_in_kb="65536" type="9FB61B5A-5245-47C2-9A59-DBE909F38498" bootable="false" readonly="false" filename=""/>
         <partition label="metadata" size_in_kb="65536" type="649044CD-B22B-443F-8DF8-687EB85380A8" bootable="false" readonly="false" filename=""/>
-        <partition label="userdata" size_in_kb="3582912" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""/>
+	<partition label="blackbox" size_in_kb="51200" type="6CD3A623-D50C-4483-A223-5BF27B977EBD" bootable="false" readonly="false" filename=""/>
+        <partition label="userdata" size_in_kb="3531712" type="1B81E7E6-F50D-419B-A739-2AEEF8DA3335" bootable="false" readonly="false" filename=""/>
     </physical_partition>
 
     <!-- This is LUN 1 - Boot LUN A" -->
